@@ -63,7 +63,7 @@ const login = async (req, res) => {
         const {email, password} = req.body;
 
         const userExist = await User.findOne({email: email});
-        console.log("Value inside userExist" , userExist);
+        // console.log("Value inside userExist" , userExist);
         
 
         if(!userExist) {
