@@ -13,9 +13,15 @@ const validate = (schema) => async (req, res, next) => {
         
         // console.log(err.issues[0].message);
         const message = err.issues[0].message;
-        console.log("MESSAGE IS : ", message);
+        // console.log("MESSAGE IS : ", message);
         
-        res.status(400).json({msg: message});
+        // res.status(400).json({msg: message});
+
+        const message2 = {
+            "message": message,
+            "extraDetails": "Something went wrong in Zod Validation"
+        }
+        next(message2);
     }
 }
 

@@ -6,12 +6,15 @@ const calculateRouter = require("./routers/calculate-router");
 
 const connectDb = require("./utils/db");
 
+const errorMiddleware = require("./middlewares/error-middleware");
+
 // Middlewares
 app.use(express.json());
 
 app.use("/api/auth", authRouter);
 app.use("/api/calculate", calculateRouter);
 
+app.use(errorMiddleware);
 
 // app.get("/", (req, res) => {
 //     res.status(200).send("Welcome to the world of mern Dishant");
